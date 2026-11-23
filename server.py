@@ -27,7 +27,7 @@ from main import (
 )
 
 WEBHOOK_SECRET = os.environ["WEBHOOK_SECRET"]
-BASE_URL = os.environ["RENDER_EXTERNAL_URL"].rstrip("/")
+BASE_URL = "https://ethio-telecom-packages-bot.onrender.com"
 
 telegram_app = Application.builder().token(BOT_TOKEN).build()
 
