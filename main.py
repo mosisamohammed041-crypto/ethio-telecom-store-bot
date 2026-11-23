@@ -1,4 +1,4 @@
-
+from datetime import datetime, timezone
 import os
 import logging
 
@@ -354,7 +354,7 @@ async def deliver_order(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     db.table("deliveries").update({
         "status": "delivered",
-        "delivered_at": "now()"
+        "delivered_at": datetime.now(timezone.utc).isoformat()
     }).eq("order_id", order_id).execute()
 
     await context.bot.send_message(
